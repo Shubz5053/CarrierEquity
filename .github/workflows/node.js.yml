@@ -67,14 +67,3 @@ jobs:
           path: allure-results/
           retention-days: 30
 
-      # 9. Allure summary on Pull Request
-      - name: Allure Report Action
-        if: always()
-        uses: allure-framework/allure-action@v0
-        with:
-          report-directory: "./allure-report"
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          sections: |
-            new
-            flaky
-            retry

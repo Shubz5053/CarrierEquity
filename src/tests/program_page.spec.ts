@@ -30,3 +30,27 @@ test('Create Program', async ({ page }) => {
   ).toBeVisible();
 })
 
+test('Verify Program', async ({ page }) => {
+  const programpage = new ProgramPage(page);
+  const basepage = new BasePage(page);
+})
+
+test('TC01 - Verify test passes', async () => {
+  expect(1 + 1).toBe(2);
+});
+
+test('TC02 - Verify text', async () => {
+  const message = 'Hello Playwright';
+  expect(message).toBe('Hello Playwright');
+});
+
+test('TC03 - Verify array', async () => {
+  const users = ['Shubham', 'Amit', 'Rahul'];
+  expect(users).toContain('Shubham');
+  expect(users.length).toBe(3);
+});
+
+test('TC04 - Intentional failure for Allure screenshot', async ({ page }) => {
+  await page.goto('https://example.com');
+  await expect(page.locator('h1')).toHaveText('Wrong Text');
+});
