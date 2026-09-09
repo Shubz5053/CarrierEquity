@@ -1,0 +1,36 @@
+/// <reference types="node" />
+import { defineConfig, devices } from '@playwright/test';
+export default defineConfig({
+  testDir: 'src/tests',
+  retries: 0,
+  workers: 1,
+  timeout: 10000,
+
+  use: {
+    baseURL: "https://sit.careerequity.com/",
+    headless: true,
+    screenshot: 'only-on-failure',
+    video: 'retain-on-failure',
+    trace: 'on-first-retry'
+  },
+
+  reporter: [
+    ['line'],
+    ['allure-playwright']
+  ],
+
+  projects: [
+    {
+      name: 'setup',
+      testMatch: /auth\.setup\.ts/,
+    },
+    {
+      name: 'chromium',
+      use: {
+        browserName: 'chromium',
+        storageState: 'auth/user.json',
+      },
+      dependencies: ['setup'],
+    },
+  ]
+});

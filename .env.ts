@@ -1,0 +1,3 @@
+USERNAME=sujatamuley001@yopmail.com
+PASSWORD=Admin@123
+CLIENT_ID=6mkalcktl8kjqvq0j7su4np8gd
