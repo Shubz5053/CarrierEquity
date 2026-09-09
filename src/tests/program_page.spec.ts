@@ -1,9 +1,9 @@
 import { test, expect } from '@playwright/test';
-import { ProgramPage } from '../../pages/EmployerPage/program.page'
-import { BasePage } from '../../pages/base.page';
-import { getTodayDateYYYYMMDD, getTomorrowDateYYYYMMDD } from '../../utils/dataobject';
-import { getRandomNumber } from '../../utils/randomnumber';
-import { writeJson } from "../../utils/jsonUtils";
+import { ProgramPage } from '../pages/program.page'
+import { BasePage } from '../pages/base.page';
+import { getTodayDateYYYYMMDD, getTomorrowDateYYYYMMDD } from '../utils/dataobject';
+import { getRandomNumber } from '../utils/randomnumber';
+import { writeJson } from "../utils/jsonUtils";
 
 
 
