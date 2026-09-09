@@ -40,16 +40,25 @@ jobs:
       - name: Install Playwright browsers
         run: npx playwright install --with-deps chromium
 
-      # 5. Run Playwright tests
+      # 5 Claean old reports
+      - name: Clean old reports
+        run: |
+          rm -rf allure-results
+          rm -rf allure-report
+          rm -rf test-results
+          rm -rf playwright-report
+
+
+      # 6. Run Playwright tests
       - name: Run Playwright tests
         run: npx playwright test
 
-      # 6. Generate Allure report
+      # 7. Generate Allure report
       - name: Generate Allure report
         if: always()
         run: npx allure generate allure-results --output allure-report
 
-      # 7. Upload Allure report
+      # 8. Upload Allure report
       - name: Upload Allure report
         if: always()
         uses: actions/upload-artifact@v4
@@ -58,7 +67,7 @@ jobs:
           path: allure-report/
           retention-days: 30
 
-      # 8. Upload Allure results
+      # 9. Upload Allure results
       - name: Upload Allure results
         if: always()
         uses: actions/upload-artifact@v4
