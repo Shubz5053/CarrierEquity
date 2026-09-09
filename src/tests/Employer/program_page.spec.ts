@@ -1,9 +1,9 @@
 import { test, expect } from '@playwright/test';
-import { ProgramPage } from '../pages/program.page'
-import { BasePage } from '../pages/base.page';
-import { getTodayDateYYYYMMDD, getTomorrowDateYYYYMMDD } from '../utils/dataobject';
-import { getRandomNumber } from '../utils/randomnumber';
-import { writeJson } from "../utils/jsonUtils";
+import { ProgramPage } from '../../pages/EmployerPage/program.page'
+import { BasePage } from '../../pages/base.page';
+import { getTodayDateYYYYMMDD, getTomorrowDateYYYYMMDD } from '../../utils/dataobject';
+import { getRandomNumber } from '../../utils/randomnumber';
+import { writeJson } from "../../utils/jsonUtils";
 
 
 
@@ -50,7 +50,3 @@ test('TC03 - Verify array', async () => {
   expect(users.length).toBe(3);
 });
 
-test('TC04 - Intentional failure for Allure screenshot', async ({ page }) => {
-  await page.goto('https://example.com');
-  await expect(page.locator('h1')).toHaveText('Wrong Text');
-});

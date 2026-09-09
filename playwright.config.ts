@@ -3,8 +3,8 @@ import { defineConfig, devices } from '@playwright/test';
 export default defineConfig({
   testDir: 'src/tests',
   retries: 0,
-  workers: 3,
-  timeout: 10000,
+  workers: 2,
+  timeout: 15000,
 
   use: {
     baseURL: "https://sit.careerequity.com/",
@@ -28,7 +28,7 @@ export default defineConfig({
       name: 'chromium',
       use: {
         browserName: 'chromium',
-        storageState: 'auth/user.json',
+        storageState: 'auth/employerauth.json',
       },
       dependencies: ['setup'],
     },
@@ -39,20 +39,9 @@ export default defineConfig({
       use: {
         ...devices['Desktop Firefox'],
         browserName: 'firefox',
-        storageState: 'auth/user.json',
+        storageState: 'auth/employerauth.json',
       },
       dependencies: ['setup'],
     },
-
-    // Safari/WebKit
-    {
-      name: 'webkit',
-      use: {
-        ...devices['Desktop Safari'],
-        browserName: 'webkit',
-        storageState: 'auth/user.json',
-      },
-      dependencies: ['setup'],
-    }
   ]
 });
