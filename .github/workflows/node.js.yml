@@ -51,7 +51,7 @@ jobs:
 
       # 6. Run Playwright tests
       - name: Run Playwright tests
-        run: npx playwright test --project=firefox
+        run: npx playwright test 
 
       # 7. Generate Allure report
       - name: Generate Allure report
