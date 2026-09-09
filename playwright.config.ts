@@ -3,7 +3,7 @@ import { defineConfig, devices } from '@playwright/test';
 export default defineConfig({
   testDir: 'src/tests',
   retries: 0,
-  workers: 1,
+  workers: 3,
   timeout: 10000,
 
   use: {
@@ -32,5 +32,27 @@ export default defineConfig({
       },
       dependencies: ['setup'],
     },
+
+    // Firefox
+    {
+      name: 'firefox',
+      use: {
+        ...devices['Desktop Firefox'],
+        browserName: 'firefox',
+        storageState: 'auth/user.json',
+      },
+      dependencies: ['setup'],
+    },
+
+    // Safari/WebKit
+    {
+      name: 'webkit',
+      use: {
+        ...devices['Desktop Safari'],
+        browserName: 'webkit',
+        storageState: 'auth/user.json',
+      },
+      dependencies: ['setup'],
+    }
   ]
 });
