@@ -28,7 +28,7 @@ export default defineConfig({
       name: 'chromium',
       use: {
         browserName: 'chromium',
-        storageState: 'auth/employerauth.json',
+        storageState: 'auth/auth.json',
       },
       dependencies: ['setup'],
     },
@@ -39,7 +39,7 @@ export default defineConfig({
       use: {
         ...devices['Desktop Firefox'],
         browserName: 'firefox',
-        storageState: 'auth/employerauth.json',
+        storageState: 'auth/auth.json',
       },
       dependencies: ['setup'],
     },
